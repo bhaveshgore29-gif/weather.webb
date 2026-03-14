@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Weather Dashboard</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Leaflet Map -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+</head>
+
+<body>
+   
+    <video autoplay muted loop id="bgVideo">
+    <source src="video/background.mp4" type="video/mp4">
+</video>
+
+<!-- SKY ANIMATION -->
+<div id="skyAnimation"></div>
+
+<!-- LIGHTNING -->
+<div id="lightningEffect"></div>
+
+<!-- WEATHER ANIMATION -->
+<div id="weatherAnimation"></div>
+
+<!-- WEATHER BACKGROUND -->
+<div id="weatherBackground"></div>
+
+
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+<h2>Weather App</h2>
+
+<div>
+
+<a href="profile.html">
+<button>👤 Profile</button>
+</a>
+
+<button onclick="toggleDarkMode()">🌙 Dark Mode</button>
+
+<button onclick="logout()">Logout</button>
+
+</div>
+
+</div>
+
+
+
+<h1>Weather Dashboard</h1>
+
+
+
+<!-- SEARCH SECTION -->
+
+<div class="search-box">
+
+<input
+type="text"
+id="city"
+placeholder="Enter city name"
+>
+
+<button onclick="getWeather()">🔍 Search</button>
+
+<br><br>
+
+<button onclick="getLocationWeather()">📍 Use My Location</button>
+
+<button onclick="addFavoriteCity()">⭐ Add Favorite</button>
+
+<div id="loadingMessage"></div>
+
+</div>
+
+
+
+<!-- WEATHER ALERT -->
+
+<div id="weatherAlert"></div>
+
+
+
+<!-- WEATHER CARD -->
+
+<div class="weather-card">
+
+<h2 id="cityName"></h2>
+
+<img id="weatherIcon" width="120">
+
+<p id="temp"></p>
+
+<p id="condition"></p>
+
+<p id="humidity"></p>
+
+<p id="wind"></p>
+
+</div>
+
+
+
+<!-- FORECAST -->
+
+<div id="forecast" class="forecast"></div>
+
+
+
+<!-- TEMPERATURE GRAPH -->
+
+<div class="chart-container">
+
+<h2>Temperature Forecast</h2>
+
+<canvas id="tempChart"></canvas>
+
+</div>
+
+
+
+<!-- FAVORITE CITIES -->
+
+<h2>⭐ Favorite Cities</h2>
+
+<div id="favoriteCities"></div>
+
+
+
+<!-- LIVE WEATHER MAP -->
+
+<h2>🗺 Live Weather Map</h2>
+
+<div id="weatherMap"></div>
+
+
+
+<!-- SCRIPT -->
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>
