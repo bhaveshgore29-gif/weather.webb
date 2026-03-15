@@ -1,0 +1,670 @@
+/* ======================
+GLOBAL STYLE
+====================== */
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+margin:0;
+padding:0;
+text-align:center;
+color:white;
+
+background:linear-gradient(135deg,#4facfe,#00f2fe,#43e97b);
+background-size:400% 400%;
+animation:bgmove 12s infinite alternate;
+}
+
+@keyframes bgmove{
+0%{background-position:left}
+100%{background-position:right}
+}
+
+/* ======================
+NAVBAR
+====================== */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:rgba(0,0,0,0.35);
+backdrop-filter:blur(10px);
+}
+
+.navbar h2{
+margin:0;
+}
+
+.navbar button{
+padding:8px 15px;
+border:none;
+background:#ff4d4d;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+.navbar button:hover{
+background:#e63c3c;
+}
+
+/* ======================
+LOGIN BOX
+====================== */
+
+.login-box{
+background:rgba(255,255,255,0.95);
+color:black;
+width:320px;
+margin:120px auto;
+padding:30px;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.login-box input{
+padding:10px;
+margin:10px 0;
+width:90%;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+.login-box button{
+padding:10px;
+width:100%;
+background:#4facfe;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+.login-box button:hover{
+background:#2f8df5;
+}
+
+/* ======================
+SEARCH BOX
+====================== */
+
+.search-box{
+margin-top:40px;
+}
+
+.search-box input{
+padding:12px;
+border-radius:25px;
+border:none;
+width:220px;
+font-size:15px;
+}
+
+.search-box button{
+padding:12px 20px;
+border-radius:25px;
+border:none;
+background:#333;
+color:white;
+cursor:pointer;
+margin-left:10px;
+}
+
+.search-box button:hover{
+background:black;
+}
+
+/* ======================
+WEATHER CARD
+====================== */
+
+.weather-card{
+background:rgba(255,255,255,0.2);
+backdrop-filter:blur(10px);
+border-radius:15px;
+padding:25px;
+width:320px;
+margin:40px auto;
+box-shadow:0 10px 30px rgba(0,0,0,0.35);
+}
+
+.weather-card h2{
+margin:10px 0;
+}
+
+.weather-card p{
+margin:6px 0;
+font-size:16px;
+}
+
+/* ======================
+WEATHER ICON
+====================== */
+
+#weatherIcon{
+width:120px;
+margin:10px;
+}
+
+/* ======================
+FORECAST SECTION
+====================== */
+
+.forecast{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.forecast-card{
+background:white;
+color:black;
+padding:15px;
+border-radius:10px;
+width:130px;
+transition:0.3s;
+box-shadow:0 5px 15px rgba(0,0,0,0.25);
+}
+
+.forecast-card img{
+width:50px;
+}
+
+.forecast-card:hover{
+transform:scale(1.1);
+}
+
+/* ======================
+TEMPERATURE GRAPH
+====================== */
+
+.chart-container{
+width:80%;
+max-width:700px;
+margin:40px auto;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.25);
+}
+
+.chart-container h2{
+color:black;
+}
+
+/* ======================
+FAVORITE CITIES
+====================== */
+
+#favoriteCities{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+.favorite-city{
+background:white;
+color:black;
+padding:10px 15px;
+border-radius:20px;
+cursor:pointer;
+box-shadow:0 3px 8px rgba(0,0,0,0.2);
+}
+
+.favorite-city:hover{
+background:#eee;
+}
+
+/* ======================
+WEATHER ALERT
+====================== */
+
+#weatherAlert{
+width:80%;
+max-width:600px;
+margin:20px auto;
+padding:15px;
+border-radius:8px;
+font-weight:bold;
+}
+
+.alert-rain{background:#2196f3}
+.alert-storm{background:#673ab7}
+.alert-snow{background:#607d8b}
+.alert-heat{background:#ff5722}
+
+/* ======================
+MAP
+====================== */
+
+#weatherMap{
+width:90%;
+height:400px;
+margin:40px auto;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,0.4);
+}
+
+/* ======================
+DARK MODE
+====================== */
+
+.dark-mode{
+background:#121212;
+}
+
+.dark-mode .weather-card{
+background:#1e1e1e;
+}
+
+.dark-mode .forecast-card{
+background:#2a2a2a;
+color:white;
+}
+
+.dark-mode input{
+background:#333;
+color:white;
+}
+
+.dark-mode button{
+background:#444;
+}
+
+/* ======================
+WEATHER BACKGROUND
+====================== */
+
+#weatherBackground{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+/* Sunny */
+
+.sunny{
+background:linear-gradient(to top,#fddb92,#d1fdff);
+}
+
+/* Rain */
+
+.rain{
+background:#4e54c8;
+}
+
+/* Snow */
+
+.snow{
+background:#0f2027;
+}
+
+/* ======================
+ANIMATION CONTAINER
+====================== */
+
+#weatherAnimation{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:-1;
+}
+
+/* RAIN DROP */
+
+.rain-drop{
+position:absolute;
+width:2px;
+height:15px;
+background:rgba(255,255,255,0.7);
+animation:rainFall 1s linear infinite;
+}
+
+@keyframes rainFall{
+0%{transform:translateY(-100px)}
+100%{transform:translateY(100vh)}
+}
+
+/* SNOW */
+
+.snowflake{
+position:absolute;
+font-size:12px;
+color:white;
+animation:snowFall 10s linear infinite;
+}
+
+@keyframes snowFall{
+0%{transform:translateY(-50px)}
+100%{transform:translateY(100vh)}
+}
+
+/* CLOUD */
+
+.cloud{
+position:absolute;
+width:200px;
+height:60px;
+background:white;
+border-radius:50px;
+opacity:0.7;
+animation:cloudMove 40s linear infinite;
+}
+
+@keyframes cloudMove{
+0%{transform:translateX(-300px)}
+100%{transform:translateX(120vw)}
+}
+
+/* ======================
+LIGHTNING EFFECT
+====================== */
+
+#lightningEffect{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:-1;
+}
+
+.lightning-flash{
+position:absolute;
+width:100%;
+height:100%;
+background:white;
+opacity:0;
+animation:lightningFlash 0.3s ease;
+}
+
+@keyframes lightningFlash{
+0%{opacity:0}
+50%{opacity:0.9}
+100%{opacity:0}
+}
+
+/* ======================
+SKY ANIMATION
+====================== */
+
+#skyAnimation{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-2;
+pointer-events:none;
+}
+
+/* SUN */
+
+.sun{
+position:absolute;
+top:80px;
+right:120px;
+width:90px;
+height:90px;
+background:yellow;
+border-radius:50%;
+box-shadow:0 0 60px yellow;
+}
+
+/* MOON */
+
+.moon{
+position:absolute;
+top:80px;
+right:120px;
+width:70px;
+height:70px;
+background:#ddd;
+border-radius:50%;
+box-shadow:0 0 40px white;
+}
+
+/* STARS */
+
+.star{
+position:absolute;
+color:white;
+font-size:10px;
+animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+0%{opacity:0.3}
+100%{opacity:1}
+}
+
+/* DAY SKY */
+
+.day-sky{
+background:linear-gradient(to top,#87CEEB,#e0f7ff);
+}
+
+/* NIGHT SKY */
+
+.night-sky{
+background:linear-gradient(to top,#020111,#191621);
+}
+/* ======================
+SEARCH CONTAINER
+====================== */
+
+.search-container{
+
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(10px);
+
+padding:25px;
+border-radius:15px;
+
+width:90%;
+max-width:500px;
+
+margin:30px auto;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+
+}
+
+.search-container input{
+
+width:100%;
+padding:12px;
+
+border:none;
+border-radius:25px;
+
+font-size:16px;
+
+margin-bottom:15px;
+
+}
+
+/* BUTTON GRID */
+
+.search-buttons{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:10px;
+
+}
+
+/* BUTTON STYLE */
+
+.search-buttons button{
+
+padding:12px;
+
+border:none;
+
+border-radius:25px;
+
+background:#333;
+
+color:white;
+
+cursor:pointer;
+
+font-size:14px;
+
+transition:0.3s;
+
+}
+
+.search-buttons button:hover{
+
+background:black;
+transform:scale(1.05);
+
+}
+/* ======================
+PROFESSIONAL SEARCH CARD
+====================== */
+
+.search-card{
+
+background:rgba(255,255,255,0.15);
+
+backdrop-filter:blur(15px);
+
+padding:30px;
+
+border-radius:20px;
+
+width:90%;
+max-width:600px;
+
+margin:40px auto;
+
+box-shadow:0 15px 40px rgba(0,0,0,0.4);
+
+}
+
+/* SEARCH ROW */
+
+.search-row{
+
+display:flex;
+
+gap:10px;
+
+margin-bottom:20px;
+
+}
+
+.search-row input{
+
+flex:1;
+
+padding:14px;
+
+border:none;
+
+border-radius:30px;
+
+font-size:16px;
+
+outline:none;
+
+}
+
+.search-row button{
+
+padding:14px 18px;
+
+border:none;
+
+border-radius:30px;
+
+background:#000;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+}
+
+/* ACTION BUTTON GRID */
+
+.action-buttons{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:12px;
+
+}
+
+.action-buttons button{
+
+padding:12px;
+
+border:none;
+
+border-radius:30px;
+
+background:linear-gradient(135deg,#4facfe,#00f2fe);
+
+color:white;
+
+font-size:14px;
+
+cursor:pointer;
+
+transition:0.3s;
+
+}
+
+.action-buttons button:hover{
+
+transform:scale(1.05);
+
+box-shadow:0 8px 20px rgba(0,0,0,0.3);
+
+}
+/* LOGIN PAGE BACKGROUND */
+
+.login-page{
+
+background-image:url("../images/sky-bg.jpg");
+
+background-size:cover;
+
+background-position:center;
+
+background-repeat:no-repeat;
+
+height:100vh;
+
+}
+#bgVideo {
+position: fixed;
+right: 0;
+bottom: 0;
+min-width: 100%;
+min-height: 100%;
+z-index: -3;
+object-fit: cover;
+}
